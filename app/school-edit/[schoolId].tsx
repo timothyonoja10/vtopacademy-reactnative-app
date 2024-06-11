@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import {Text, SafeAreaView, StyleSheet, TextInput, Button, View, ActivityIndicator, StatusBar} from 'react-native';
 import processEditSchoolForm from './editSchoolFormProcessor';
-import { useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import getSchool from './getSchoolApi';
 
 export default function Page() {
@@ -24,6 +24,11 @@ export default function Page() {
   
   return (
     <SafeAreaView style={styles.container}>
+      <Stack.Screen
+        options={{
+          title: 'Edit school',
+        }}
+      />
       {isLoading ? (
         <ActivityIndicator />
       ) : (

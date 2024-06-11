@@ -13,7 +13,7 @@ export default async function processLoginForm(
     let isAdmin = jsonData.isAdmin === true; 
     let isUser = jsonData.isUser === true;
     await saveAuthInfo(jsonData.accessToken, isAdmin, isUser);
-    router.navigate('/');
+    router.replace('/');
     return true;
   } catch (error) {
    

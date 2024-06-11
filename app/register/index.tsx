@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import processRegistrationForm from './registrationFormProcessor';
+import { Stack } from 'expo-router';
 
 export default function Page() {
   const [username, onChangeText] = React.useState('');
@@ -8,6 +9,11 @@ export default function Page() {
 
   return (
     <SafeAreaView>
+      <Stack.Screen
+        options={{
+          title: 'Register',
+        }}
+      />
       <Text>Register</Text>
 
       <Text>Username</Text>

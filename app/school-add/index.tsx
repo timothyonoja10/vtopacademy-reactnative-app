@@ -2,6 +2,7 @@
 import React from 'react';
 import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import processAddSchoolForm from './addSchoolFormProcessor';
+import { Stack } from 'expo-router';
 
 export default function Page() {
   const [name, onChangeName] = React.useState('');
@@ -9,6 +10,11 @@ export default function Page() {
 
   return (
     <SafeAreaView>
+      <Stack.Screen
+        options={{
+          title: 'Add new school',
+        }}
+      />
       <Text>Add new school</Text>
       
       <Text>Name</Text>

@@ -1,5 +1,5 @@
 
-import { Link } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View, StyleSheet, Pressable, Text, StatusBar,
    SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
@@ -25,6 +25,11 @@ export default function Page() {
   
   return (
     <SafeAreaView style={styles.container}>
+      <Stack.Screen
+        options={{
+          title: 'Schools',
+        }}
+      />
       {isLoading ? (
         <ActivityIndicator />
       ) : (

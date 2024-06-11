@@ -3,6 +3,6 @@ import { deleteAuthInfo } from "../authStore";
 
 export default async function processLogout(): Promise<boolean> {
   const response = await deleteAuthInfo();
-  router.navigate('/');
+  router.replace('/');
   return true;
 }
