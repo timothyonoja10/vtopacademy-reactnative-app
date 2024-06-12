@@ -1,7 +1,7 @@
 
 import { Link, Stack } from 'expo-router';
 import { StyleSheet, Pressable, Text, View, StatusBar, SafeAreaView, ActivityIndicator } from 'react-native';
-import { hasAccessToken } from './authStore';
+import { hasAccessToken } from './authenticationStore/authStore';
 import { useEffect, useState } from 'react';
 
 export default function Page() {

@@ -1,4 +1,4 @@
-import { saveAuthInfo } from "../authStore";
+import { saveAuthInfo } from "../authenticationStore/authStore";
 import makeLogin from "./loginApi";
 import { router } from 'expo-router';
 

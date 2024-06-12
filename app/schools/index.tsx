@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { View, StyleSheet, Pressable, Text, StatusBar,
    SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
 import getSchools from './getSchoolsApi';
-import { isAdmin } from '../authStore';
+import { isAdmin } from '../authenticationStore/authStore';
 
 export default function Page() { 
   const [isLoading, setLoading] = useState(true);

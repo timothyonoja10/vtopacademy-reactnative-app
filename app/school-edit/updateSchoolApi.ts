@@ -1,4 +1,4 @@
-import { getAccessToken } from "../authStore";
+import { getAccessToken } from "../authenticationStore/authStore";
 
 export default async function updateSchool(schoolId: number, name: string, number: number) {
 
