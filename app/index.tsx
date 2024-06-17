@@ -38,18 +38,17 @@ export default function Page() {
             </Pressable>
           </Link>
           {isLoggedOut && (
-            <Link href="/register" asChild >
-              <Pressable>
-                <Text>Register</Text>
-              </Pressable>
-            </Link>
-          )}
-          {isLoggedOut && (
-            <Link href="/login" asChild >
-              <Pressable>
-                <Text>Login</Text>
-              </Pressable>
-            </Link>
+            <View>
+              <Link href="/register" asChild >
+                <Pressable><Text>Register</Text></Pressable>
+              </Link>
+              <Link href="/login" asChild >
+                <Pressable><Text>Login</Text></Pressable>
+              </Link>
+              <Link href="/forgot-password" asChild >
+                <Pressable><Text>Forgot Password</Text></Pressable>
+              </Link>
+            </View> 
           )}
           {isLoggedIn && (
             <Link href="/logout" asChild >

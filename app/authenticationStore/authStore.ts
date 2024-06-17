@@ -1,7 +1,7 @@
 
 import WebAuthStorage from "./webAuthStore";
-import isMobilePlatform from "../platformUtility";
 import MobileAuthStorage from "./mobileAuthStore";
+import { isMobilePlatform } from "../utilities";
 
 export async function isAdmin(): Promise<boolean> {
   if (isMobilePlatform()) {
