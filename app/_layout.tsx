@@ -39,7 +39,7 @@ export default function RootLayout() {
 
   if (shouldSupportOfflineStorage()) {
     return (
-      <SQLiteProvider databaseName="test.db" onInit={migrateDbIfNeeded}>
+      <SQLiteProvider databaseName="dbtest.db" onInit={migrateDbIfNeeded}>
         {stackComponent}
       </SQLiteProvider>
     );

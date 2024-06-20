@@ -3,7 +3,7 @@ import { type SQLiteDatabase } from 'expo-sqlite';
 
 export default async function migrateDbIfNeeded(db: SQLiteDatabase) {
   const DATABASE_VERSION = 1;
-  // let { user_version: currentDbVersion } = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
+  // let currentDbVersion = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
   let currentDbVersion = await getCurrentDbVersion();
   if (currentDbVersion >= DATABASE_VERSION) {
     return;
@@ -11,7 +11,7 @@ export default async function migrateDbIfNeeded(db: SQLiteDatabase) {
   if (currentDbVersion === 0) {
     await db.execAsync(`
       PRAGMA journal_mode = 'wal';
-      CREATE TABLE schools (schooIid INTEGER PRIMARY KEY NOT NULL, name TEXT NOT NULL, number INTEGER);
+      CREATE TABLE schools (schoolId INTEGER PRIMARY KEY NOT NULL, name TEXT NOT NULL, number INTEGER);
   ` );
     currentDbVersion = 1;
   }

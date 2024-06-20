@@ -6,7 +6,7 @@ import { getSchoolsFromDB, updateSchoolsInDB } from "./schoolsDb";
 export default async function getSchools(db: SQLiteDatabase | null) {
   const schools = await fetchSchoolsFromApi();
   
-  if (db === null || shouldNotSupportOfflineStorage()) {
+  if (db === null) {
     return schools;
   }
   

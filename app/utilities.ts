@@ -9,8 +9,8 @@ export function isMobilePlatform(): Boolean {
 }
 
 export function shouldSupportOfflineStorage(): Boolean {
-  // return isMobilePlatform();
-  return false;
+  return isMobilePlatform();
+  // return false;
 }
 
 export function shouldNotSupportOfflineStorage(): Boolean {
