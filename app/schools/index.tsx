@@ -41,7 +41,7 @@ export default function Page() {
         <ThemedView>
           {isAdminstrator && (
             <Link href="/school-add" asChild >
-              <Pressable><Text>Add New School</Text></Pressable>
+              <Pressable><ThemedText>Add New School</ThemedText></Pressable>
             </Link> 
           )}
           <FlatList
@@ -49,7 +49,7 @@ export default function Page() {
             keyExtractor={({schoolId}) => schoolId.toString()}
             renderItem={({item}) => (
               <>
-                <Text>{item.name}</Text>
+                <ThemedText>{item.name}</ThemedText>
                 {isAdminstrator && (
                   <>
                     <Link href={`/school-edit/${item.schoolId}`} asChild >
@@ -72,20 +72,6 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
   },
-  item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  title: {
-    fontSize: 32,
-  },
-  button: {
-    color: 'blue',
-    backgroundColor: 'black'
-  }
 });
 

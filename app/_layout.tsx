@@ -32,20 +32,7 @@ export default function RootLayout() {
 
   const stackComponent = (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      >
-        <Stack.Screen name="index"/>
-        <Stack.Screen name="schools/index"/>
-        <Stack.Screen name="+not-found" />
+      <Stack>
       </Stack>
     </ThemeProvider>
   );
