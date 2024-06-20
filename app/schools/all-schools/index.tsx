@@ -40,7 +40,7 @@ export default function Page() {
       ) : (
         <ThemedView>
           {isAdminstrator && (
-            <Link href="/schools/school-add" asChild >
+            <Link href="/schools/add-school" asChild >
               <Pressable><ThemedText>Add New School</ThemedText></Pressable>
             </Link> 
           )}
@@ -52,10 +52,10 @@ export default function Page() {
                 <ThemedText>{item.name}</ThemedText>
                 {isAdminstrator && (
                   <>
-                    <Link href={`/schools/school-edit/${item.schoolId}`} asChild >
+                    <Link href={`/schools/edit-school/${item.schoolId}`} asChild >
                       <Pressable><ThemedText>Edit</ThemedText></Pressable>
                     </Link>
-                    <Link href={`/schools/school-delete/${item.schoolId}`} asChild >
+                    <Link href={`/schools/delete-school/${item.schoolId}`} asChild >
                       <Pressable><ThemedText>Delete</ThemedText></Pressable>
                     </Link>
                   </> 
