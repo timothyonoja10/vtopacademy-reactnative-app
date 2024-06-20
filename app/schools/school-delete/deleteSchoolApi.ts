@@ -1,4 +1,4 @@
-import { getAccessToken } from "../authenticationStore/authStore";
+import { getAccessToken } from "../../auth/authenticationStore/authStore";
 
 export default async function deleteSchool(schoolId: number) {
   const accessToken = await getAccessToken();

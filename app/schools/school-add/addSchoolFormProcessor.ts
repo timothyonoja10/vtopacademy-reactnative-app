@@ -10,7 +10,7 @@ export default async function processAddSchoolForm(
   }
   try {
     const jsonData = await saveSchool(name, number);
-    router.replace('/schools');
+    router.replace('/schools/all-schools');
     return true;
   } catch (error) {
   

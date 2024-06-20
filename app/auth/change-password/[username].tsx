@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import processChangePasswordForm from './changePasswordFormProcessor';
-import { convertToString } from '../utilities';
+import { convertToString } from '../../utilities';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 

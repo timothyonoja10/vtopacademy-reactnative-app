@@ -1,7 +1,7 @@
 
 import { Link, Stack } from 'expo-router';
 import { StyleSheet, Pressable, Text, View, StatusBar, SafeAreaView, ActivityIndicator } from 'react-native';
-import { hasAccessToken } from './authenticationStore/authStore';
+import { hasAccessToken } from './auth/authenticationStore/authStore';
 import { useEffect, useState } from 'react';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
@@ -34,27 +34,25 @@ export default function Page() {
       ) : (
         <ThemedView style={styles.container}>
           <ThemedText>Home page</ThemedText>
-          <Link href="/schools" asChild >
+          <Link href="/schools/all-schools" asChild >
             <Pressable><ThemedText>Schools</ThemedText></Pressable>
           </Link>
           {isLoggedOut && (
             <>
-              <Link href="/register" asChild >
+              <Link href="/auth/register" asChild >
                 <Pressable><ThemedText>Register</ThemedText></Pressable>
               </Link>
-              <Link href="/login" asChild >
+              <Link href="/auth/login" asChild >
                 <Pressable><ThemedText>Login</ThemedText></Pressable>
               </Link>
-              <Link href="/forgot-password" asChild >
+              <Link href="/auth/forgot-password" asChild >
                 <Pressable><ThemedText>Forgot Password</ThemedText></Pressable>
               </Link>
             </> 
           )}
           {isLoggedIn && (
-            <Link href="/logout" asChild >
-              <Pressable>
-                <ThemedText>Logout</ThemedText>
-              </Pressable>
+            <Link href="/auth/logout" asChild >
+              <Pressable><ThemedText>Logout</ThemedText></Pressable>
             </Link>
           )}
         </ThemedView>

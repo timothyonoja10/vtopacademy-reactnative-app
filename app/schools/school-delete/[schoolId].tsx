@@ -16,7 +16,7 @@ export default function Page() {
       <ThemedView>
         <ThemedText>Delete confirmation</ThemedText>
         <ThemedText>Are you sure you want to delete this school?</ThemedText>
-        <Link href="/schools" asChild >
+        <Link href="/schools/all-schools" asChild >
           <Pressable><ThemedText>No</ThemedText></Pressable>
         </Link> 
         <Button

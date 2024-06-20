@@ -6,7 +6,7 @@ export default async function processEditSchoolForm(
 ): Promise<Boolean> {
   try {
     const jsonData = await updateSchool(schoolId, name, number);
-    router.replace('/schools');
+    router.replace('/schools/all-schools');
     return true;
   } catch (error) {
     return false;

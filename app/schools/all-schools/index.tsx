@@ -3,9 +3,9 @@ import { Link, Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View, StyleSheet, Pressable, Text, StatusBar,
    SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
-import { isAdmin } from '../authenticationStore/authStore';
+import { isAdmin } from '../../auth/authenticationStore/authStore';
 import { useSQLiteContext } from 'expo-sqlite';
-import { shouldSupportOfflineStorage } from '../utilities';
+import { shouldSupportOfflineStorage } from '../../utilities';
 import getSchools from './schoolsRepository';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
@@ -40,7 +40,7 @@ export default function Page() {
       ) : (
         <ThemedView>
           {isAdminstrator && (
-            <Link href="/school-add" asChild >
+            <Link href="/schools/school-add" asChild >
               <Pressable><ThemedText>Add New School</ThemedText></Pressable>
             </Link> 
           )}
@@ -52,10 +52,10 @@ export default function Page() {
                 <ThemedText>{item.name}</ThemedText>
                 {isAdminstrator && (
                   <>
-                    <Link href={`/school-edit/${item.schoolId}`} asChild >
+                    <Link href={`/schools/school-edit/${item.schoolId}`} asChild >
                       <Pressable><ThemedText>Edit</ThemedText></Pressable>
                     </Link>
-                    <Link href={`/school-delete/${item.schoolId}`} asChild >
+                    <Link href={`/schools/school-delete/${item.schoolId}`} asChild >
                       <Pressable><ThemedText>Delete</ThemedText></Pressable>
                     </Link>
                   </> 

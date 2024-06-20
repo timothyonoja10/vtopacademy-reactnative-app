@@ -1,5 +1,5 @@
 import { SQLiteDatabase } from "expo-sqlite";
-import { shouldNotSupportOfflineStorage } from "../utilities";
+import { shouldNotSupportOfflineStorage } from "../../utilities";
 import fetchSchoolsFromApi from "./fetchSchoolsApi";
 import { getSchoolsFromDB, updateSchoolsInDB } from "./schoolsDb";
 

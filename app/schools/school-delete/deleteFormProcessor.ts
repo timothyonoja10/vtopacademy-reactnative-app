@@ -7,7 +7,7 @@ export default async function processAddSchoolForm(
 ): Promise<Boolean> {
   try {
     const jsonData = await deleteSchool(schoolId);
-    router.replace('/schools');
+    router.replace('/schools/all-schools');
     return true;
   } catch (error) {
    
