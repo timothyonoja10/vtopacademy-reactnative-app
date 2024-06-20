@@ -1,5 +1,5 @@
 
-export default async function getSchools(): Promise<School[]> {
+export default async function fetchSchoolsFromApi(): Promise<School[]> {
   try {
     const response = await fetch('http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools'); 
     if (!response.ok) {
@@ -13,3 +13,4 @@ export default async function getSchools(): Promise<School[]> {
     return []; // Return an empty array in case of an exception
   }
 }
+

@@ -3,16 +3,19 @@ import { Link, Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View, StyleSheet, Pressable, Text, StatusBar,
    SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
-import getSchools from './getSchoolsApi';
 import { isAdmin } from '../authenticationStore/authStore';
+import { useSQLiteContext } from 'expo-sqlite';
+import { shouldSupportOfflineStorage } from '../utilities';
+import getSchools from './schoolsRepository';
 
 export default function Page() { 
   const [isLoading, setLoading] = useState(true);
   const [isAdminstrator, setAdminstrator] = useState(true);
   const [schools, setSchools] = useState<School[]>([]);
+  let db = shouldSupportOfflineStorage() ? useSQLiteContext() : null;
   
   const loadSchools = async () => {
-    const response = await getSchools();
+    const response = await getSchools(db);
     const adminStatus = await isAdmin();
     setSchools(response);
     setAdminstrator(adminStatus);

@@ -1,11 +1,19 @@
 import { Platform } from "react-native";
 
-export function isWebPlatform() {
+export function isWebPlatform(): Boolean {
   return Platform.OS === 'web';
 }
 
-export function isMobilePlatform() {
+export function isMobilePlatform(): Boolean {
   return Platform.OS === 'ios' || Platform.OS == 'android';
+}
+
+export function shouldSupportOfflineStorage(): Boolean {
+  return isMobilePlatform();
+}
+
+export function shouldNotSupportOfflineStorage(): Boolean {
+  return !shouldNotSupportOfflineStorage();
 }
 
 export function convertToString(username: string | string[] | undefined): string {

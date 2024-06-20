@@ -4,3 +4,5 @@ npx create-expo-app@latest
 npx expo start
 
 npm install @react-native-async-storage/async-storage
+
+npx expo install expo-sqlite
