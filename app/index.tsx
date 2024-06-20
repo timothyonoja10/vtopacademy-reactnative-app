@@ -35,7 +35,7 @@ export default function Page() {
         <ThemedView style={styles.container}>
           <ThemedText>Home page</ThemedText>
           <Link href="/schools" asChild >
-            <Pressable><ThemedText  type='link'>Schools</ThemedText></Pressable>
+            <Pressable><ThemedText>Schools</ThemedText></Pressable>
           </Link>
           {isLoggedOut && (
             <>
