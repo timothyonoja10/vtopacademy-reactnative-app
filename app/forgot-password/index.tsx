@@ -3,6 +3,8 @@ import React from 'react';
 import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import { Stack } from 'expo-router';
 import processForgotPasswordForm from './forgotPasswordFormProcessor';
+import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Page() {
   const [username, onChangeText] = React.useState('');
@@ -12,19 +14,21 @@ export default function Page() {
       <Stack.Screen
         options={{ title: 'Forgot Password', }}
       />
-      <Text>Enter your email</Text>
+      <ThemedView>
+        <ThemedText>Enter your email</ThemedText>
 
-      <Text>Email</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={username}
-      />
+        <ThemedText>Email</ThemedText>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={username}
+        />
 
-      <Button
-        title="Submit"
-        onPress={() => processForgotPasswordForm(username)}
-      />
+        <Button
+          title="Submit"
+          onPress={() => processForgotPasswordForm(username)}
+        />
+      </ThemedView>
     </SafeAreaView>
   );
 };

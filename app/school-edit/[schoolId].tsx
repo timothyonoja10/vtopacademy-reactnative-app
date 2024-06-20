@@ -4,6 +4,8 @@ import {Text, SafeAreaView, StyleSheet, TextInput, Button, View, ActivityIndicat
 import processEditSchoolForm from './editSchoolFormProcessor';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import getSchool from './getSchoolApi';
+import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Page() {
   const { schoolId } = useLocalSearchParams();
@@ -32,17 +34,17 @@ export default function Page() {
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <View>
-          <Text>Edit school</Text>
+        <ThemedView>
+          <ThemedText>Edit school</ThemedText>
       
-          <Text>Name</Text>
+          <ThemedText>Name</ThemedText>
           <TextInput
             style={styles.input}
             onChangeText={onChangeName}
             value={name}
           />
 
-          <Text>Password</Text>
+          <ThemedText>Password</ThemedText>
           <TextInput
             style={styles.input}
             onChangeText={onChangeNumber}
@@ -54,7 +56,7 @@ export default function Page() {
             title="Submit"
             onPress={() => processEditSchoolForm(Number(schoolId), name, Number(number))}
           />
-        </View>
+        </ThemedView>
       )}
     </SafeAreaView> 
   );

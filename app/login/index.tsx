@@ -2,6 +2,8 @@ import React from 'react';
 import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import processLoginForm from './loginFormProcessor';
 import { Stack } from 'expo-router';
+import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Page() {
   const [username, onChangeText] = React.useState('');
@@ -14,26 +16,27 @@ export default function Page() {
           title: 'Login',
         }}
       />
-      <Text>Login</Text>
+      <ThemedView>
+        <ThemedText>Login</ThemedText>
+        <ThemedText>Username</ThemedText>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={username}
+        />
 
-      <Text>Username</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={username}
-      />
+        <ThemedText>Password</ThemedText>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={password}
+        />
 
-      <Text>Password</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={password}
-      />
-
-      <Button
-        title="Submit"
-        onPress={() => processLoginForm(username, password)}
-      />
+        <Button
+          title="Submit"
+          onPress={() => processLoginForm(username, password)}
+        />
+      </ThemedView>
     </SafeAreaView>
   );
 };

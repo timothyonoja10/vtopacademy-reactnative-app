@@ -7,6 +7,8 @@ import { isAdmin } from '../authenticationStore/authStore';
 import { useSQLiteContext } from 'expo-sqlite';
 import { shouldSupportOfflineStorage } from '../utilities';
 import getSchools from './schoolsRepository';
+import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Page() { 
   const [isLoading, setLoading] = useState(true);
@@ -36,7 +38,7 @@ export default function Page() {
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <View>
+        <ThemedView>
           {isAdminstrator && (
             <Link href="/school-add" asChild >
               <Pressable><Text>Add New School</Text></Pressable>
@@ -46,22 +48,22 @@ export default function Page() {
             data={schools}
             keyExtractor={({schoolId}) => schoolId.toString()}
             renderItem={({item}) => (
-              <View>
+              <>
                 <Text>{item.name}</Text>
                 {isAdminstrator && (
-                  <View>
+                  <>
                     <Link href={`/school-edit/${item.schoolId}`} asChild >
-                      <Pressable><Text>Edit</Text></Pressable>
+                      <Pressable><ThemedText>Edit</ThemedText></Pressable>
                     </Link>
                     <Link href={`/school-delete/${item.schoolId}`} asChild >
-                      <Pressable><Text>Delete</Text></Pressable>
+                      <Pressable><ThemedText>Delete</ThemedText></Pressable>
                     </Link>
-                  </View> 
+                  </> 
                 )}
-              </View>
+              </>
             )}
           />
-        </View>
+        </ThemedView>
       )}
     </SafeAreaView> 
   );

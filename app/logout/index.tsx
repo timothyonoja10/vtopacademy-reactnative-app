@@ -1,6 +1,8 @@
 import { Link, Stack } from "expo-router";
 import {Text, SafeAreaView, Pressable, Button } from "react-native";
 import processLogout from "./logoutProcessor";
+import { ThemedView } from "@/components/ThemedView";
+import { ThemedText } from "@/components/ThemedText";
 
 export default function Page() {
   
@@ -11,17 +13,18 @@ export default function Page() {
           title: 'Log out',
         }}
       />
-      <Text>Logout</Text>
-      <Text>Are you sure you want to log out?</Text>
-      <Link href="/" asChild >
-        <Pressable>
-          <Text>No</Text>
-        </Pressable>
-      </Link>
-      <Button
-        title="Yes"
-        onPress={() => processLogout()}
-      />
+      <ThemedView>
+        <ThemedText>Logout</ThemedText>
+        <ThemedText>Are you sure you want to log out?</ThemedText>
+        <Link href="/" asChild >
+          <Pressable><ThemedText>No</ThemedText></Pressable>
+        </Link>
+        <Button
+          title="Yes"
+          onPress={() => processLogout()}
+        />
+      </ThemedView>
+      
     </SafeAreaView>
   );
 }

@@ -3,6 +3,8 @@ import React from 'react';
 import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import processAddSchoolForm from './addSchoolFormProcessor';
 import { Stack } from 'expo-router';
+import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Page() {
   const [name, onChangeName] = React.useState('');
@@ -15,27 +17,28 @@ export default function Page() {
           title: 'Add new school',
         }}
       />
-      <Text>Add new school</Text>
-      
-      <Text>Name</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeName}
-        value={name}
-      />
+      <ThemedView>
+        <ThemedText>Add new school</ThemedText>
+        <ThemedText>Name</ThemedText>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeName}
+          value={name}
+        />
 
-      <Text>Number</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        keyboardType='numeric'
-      />
+        <ThemedText>Number</ThemedText>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          keyboardType='numeric'
+        />
 
-      <Button
-        title="Submit"
-        onPress={() => processAddSchoolForm(name, Number(number))}
-      />
+        <Button
+          title="Submit"
+          onPress={() => processAddSchoolForm(name, Number(number))}
+        />
+      </ThemedView>  
     </SafeAreaView>
   );
 };

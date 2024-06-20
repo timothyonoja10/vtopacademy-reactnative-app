@@ -42,7 +42,11 @@ export default function RootLayout() {
             fontWeight: 'bold',
           },
         }}
-      />
+      >
+        <Stack.Screen name="index"/>
+        <Stack.Screen name="schools/index"/>
+        <Stack.Screen name="+not-found" />
+      </Stack>
     </ThemeProvider>
   );
 

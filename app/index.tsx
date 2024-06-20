@@ -3,6 +3,8 @@ import { Link, Stack } from 'expo-router';
 import { StyleSheet, Pressable, Text, View, StatusBar, SafeAreaView, ActivityIndicator } from 'react-native';
 import { hasAccessToken } from './authenticationStore/authStore';
 import { useEffect, useState } from 'react';
+import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Page() {
   const [isLoading, setLoading] = useState(true);
@@ -30,34 +32,32 @@ export default function Page() {
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <View style={styles.container}>
-          <Text>Home page</Text>
+        <ThemedView style={styles.container}>
+          <ThemedText>Home page</ThemedText>
           <Link href="/schools" asChild >
-            <Pressable>
-              <Text>Schools</Text>
-            </Pressable>
+            <Pressable><ThemedText  type='link'>Schools</ThemedText></Pressable>
           </Link>
           {isLoggedOut && (
-            <View>
+            <>
               <Link href="/register" asChild >
-                <Pressable><Text>Register</Text></Pressable>
+                <Pressable><ThemedText>Register</ThemedText></Pressable>
               </Link>
               <Link href="/login" asChild >
-                <Pressable><Text>Login</Text></Pressable>
+                <Pressable><ThemedText>Login</ThemedText></Pressable>
               </Link>
               <Link href="/forgot-password" asChild >
-                <Pressable><Text>Forgot Password</Text></Pressable>
+                <Pressable><ThemedText>Forgot Password</ThemedText></Pressable>
               </Link>
-            </View> 
+            </> 
           )}
           {isLoggedIn && (
             <Link href="/logout" asChild >
               <Pressable>
-                <Text>Logout</Text>
+                <ThemedText>Logout</ThemedText>
               </Pressable>
             </Link>
           )}
-        </View>
+        </ThemedView>
       )}
     </SafeAreaView>
   );
@@ -66,6 +66,5 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
   }
 });

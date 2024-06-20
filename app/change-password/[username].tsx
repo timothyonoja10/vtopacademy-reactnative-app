@@ -3,6 +3,8 @@ import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import processChangePasswordForm from './changePasswordFormProcessor';
 import { convertToString } from '../utilities';
+import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Page() {
   const { username } = useLocalSearchParams();
@@ -15,26 +17,29 @@ export default function Page() {
     <SafeAreaView>
       <Stack.Screen options={{ title: 'Change Password' }} />
       
-      <Text>Enter the code sent to your email</Text>
+      <ThemedView>
+        <ThemedText>Enter the code sent to your email</ThemedText>
 
-      <Text>Code</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeCode}
-        value={code}
-      />
+        <ThemedText>Code</ThemedText>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeCode}
+          value={code}
+        />
 
-      <Text>New Password</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={password}
-      />
+        <ThemedText>New Password</ThemedText>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={password}
+        />
 
-      <Button
-        title="Submit"
-        onPress={() => processChangePasswordForm(parsedUsername, password, code)}
-      />
+        <Button
+          title="Submit"
+          onPress={() => processChangePasswordForm(parsedUsername, password, code)}
+        />
+      </ThemedView>
+      
     </SafeAreaView>
   );
 };
