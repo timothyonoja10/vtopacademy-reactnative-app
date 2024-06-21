@@ -5,7 +5,7 @@ export default async function getSchool(schoolId: number): Promise<School> {
   
   const url = `${API_BASE_URL}schools/${schoolId}`;
   
-  const accessToken = getAccessToken();
+  const accessToken = await getAccessToken();
   if (!accessToken) {
     console.log('Access token is missing');
   }
