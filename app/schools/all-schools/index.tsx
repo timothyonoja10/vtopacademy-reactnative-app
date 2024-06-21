@@ -1,8 +1,7 @@
 
 import { Link, Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { View, StyleSheet, Pressable, Text, StatusBar,
-   SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
+import { StyleSheet, Pressable, SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
 import { isAdmin } from '../../auth/authenticationStore/authStore';
 import { useSQLiteContext } from 'expo-sqlite';
 import { shouldSupportOfflineStorage } from '../../utilities';
