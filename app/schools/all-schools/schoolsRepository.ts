@@ -1,6 +1,7 @@
 import { SQLiteDatabase } from "expo-sqlite";
 import fetchSchoolsFromApi from "./fetchSchoolsApi";
-import { getSchoolsFromDB, updateSchoolsInDB } from "./schoolsDb";
+import updateSchoolsInDB from "./schoolsDb/updateSchools";
+import getSchoolsFromDB from "./schoolsDb/getSchools";
 
 export default async function getSchools(db: SQLiteDatabase | null) {
   const schools = await fetchSchoolsFromApi();

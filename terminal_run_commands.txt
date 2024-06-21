@@ -6,3 +6,8 @@ npx expo start
 npm install @react-native-async-storage/async-storage
 
 npx expo install expo-sqlite
+
+npx expo install -- --save-dev jest-expo jest @types/jest fetch-mock 
+update package.json
+
+npm run test

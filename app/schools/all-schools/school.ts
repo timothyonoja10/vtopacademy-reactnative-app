@@ -1,6 +1,6 @@
 
 interface School {
-  schoolId: 0; 
+  schoolId: number; 
   name: string; 
-  number: 0;
+  number: number;
 }
