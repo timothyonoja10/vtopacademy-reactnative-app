@@ -10,4 +10,6 @@ npx expo install expo-sqlite
 npx expo install -- --save-dev jest-expo jest @types/jest fetch-mock 
 update package.json
 
+update .gitignore
+
 npm run test
