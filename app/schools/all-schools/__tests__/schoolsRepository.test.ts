@@ -1,8 +1,8 @@
 // getSchools.test.ts
 import { SQLiteDatabase } from "expo-sqlite";
 import fetchSchoolsFromApi from "../fetchSchoolsApi";
-import { getSchoolsFromDB } from "../schoolsDb";
 import getSchools from "../schoolsRepository";
+import getSchoolsFromDB from "../schoolsDb/getSchools";
 
 // Mocking SQLiteDatabase and its methods
 jest.mock('expo-sqlite', () => {
@@ -18,7 +18,7 @@ jest.mock('expo-sqlite', () => {
 
 // Mocking other dependencies
 jest.mock('../fetchSchoolsApi');
-jest.mock('../schoolsDb');
+jest.mock('../schoolsDb/getSchools');
 
 describe('getSchools', () => {
   let db: jest.Mocked<SQLiteDatabase>;

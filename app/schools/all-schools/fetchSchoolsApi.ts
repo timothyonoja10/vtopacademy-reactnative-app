@@ -1,7 +1,9 @@
+import { API_BASE_URL } from "@/constants/BaseUrl";
 
 export default async function fetchSchoolsFromApi(): Promise<School[]> {
   try {
-    const response = await fetch('http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools'); 
+    let url = API_BASE_URL + 'schools';
+    const response = await fetch(url); 
     if (!response.ok) {
       //console.error('Failed to fetch schools');
       return []; // Return an empty array in case of failure
@@ -13,4 +15,3 @@ export default async function fetchSchoolsFromApi(): Promise<School[]> {
     return []; // Return an empty array in case of an exception
   }
 }
-

@@ -2,15 +2,19 @@
 
 import fetchMock from 'fetch-mock';
 import fetchSchoolsFromApi from '../fetchSchoolsApi';
+import { API_BASE_URL } from '@/constants/BaseUrl';
 
 describe('fetchSchoolsFromApi', () => {
+  
+  const url = API_BASE_URL + 'schools';
+
   afterEach(() => {
     fetchMock.restore();
   });
 
   it('should return data when the API call is successful', async () => {
     const mockData = [{ id: 1, name: 'School 1' }, { id: 2, name: 'School 2' }];
-    fetchMock.get('http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools', {
+    fetchMock.get(url, {
       status: 200,
       body: mockData,
     });
@@ -20,7 +24,7 @@ describe('fetchSchoolsFromApi', () => {
   });
 
   it('should return an empty array when the API call fails', async () => {
-    fetchMock.get('http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools', {
+    fetchMock.get(url, {
       status: 500,
     });
 
@@ -29,7 +33,7 @@ describe('fetchSchoolsFromApi', () => {
   });
 
   it('should return an empty array when there is an exception', async () => {
-    fetchMock.get('http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools', {
+    fetchMock.get(url, {
       throws: new Error('Network Error'),
     });
 

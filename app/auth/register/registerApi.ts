@@ -1,7 +1,10 @@
+import { API_BASE_URL } from "@/constants/BaseUrl";
 
 export default async function makeRegistration(username: string, password: string) {  
   const confirmPassword = password;
-  const res = await fetch('http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/auth/register', {
+  let url = API_BASE_URL + 'auth/register';
+  
+  const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

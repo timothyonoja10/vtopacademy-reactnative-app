@@ -1,6 +1,8 @@
+import { API_BASE_URL } from "@/constants/BaseUrl";
 
 export default async function generateForgotPasswordCode(username: string) {
-  const res = await fetch('http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/auth/forgot-password', {
+  let url = API_BASE_URL + 'auth/forgot-password';
+  const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

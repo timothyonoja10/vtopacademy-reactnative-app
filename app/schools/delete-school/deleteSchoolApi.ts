@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "@/constants/BaseUrl";
 import { getAccessToken } from "../../auth/authenticationStore/authStore";
 
 export default async function deleteSchool(schoolId: number) {
@@ -6,7 +7,7 @@ export default async function deleteSchool(schoolId: number) {
   if (!schoolId) {
     console.log('Invalid schoolId');
   } 
-  const url = `http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools/${schoolId}`;
+  const url = `${API_BASE_URL}schools/${schoolId}`;
   const response = await fetch(url, {
     method: 'DELETE',
     headers: {

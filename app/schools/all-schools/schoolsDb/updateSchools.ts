@@ -1,4 +1,4 @@
-import { SQLiteDatabase } from "expo-sqlite";
+import { type SQLiteDatabase } from "expo-sqlite";
 import deleteAllSchoolsInDB from "./deleteSchools";
 import saveSchoolsInDB from "./saveSchools";
 
