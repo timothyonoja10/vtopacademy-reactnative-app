@@ -18,7 +18,8 @@ export default async function getSchool(schoolId: number): Promise<School> {
     });
   
     if (!res.ok) {
-      console.log('Failed to fetch schools. Try again');
+      console.log('Failed to fetch school. Try again');
+      throw new Error();
     }
   
     const data = await res.json();

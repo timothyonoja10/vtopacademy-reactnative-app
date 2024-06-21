@@ -9,9 +9,11 @@ export default async function processForgotPasswordForm(
     return false;
   }
   try {
-    const jsonData = await generateForgotPasswordCode(username);
-    router.replace(`/auth/change-password/${username}`);
-    return true;
+    const result = await generateForgotPasswordCode(username);
+    if (result) {
+      router.replace(`/auth/change-password/${username}`);
+      return true;
+    } 
   } catch (error) {
     
   }

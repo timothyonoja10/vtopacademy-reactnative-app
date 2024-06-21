@@ -5,10 +5,13 @@ export default async function processEditSchoolForm(
     schoolId: number, name: string, number: number
 ): Promise<Boolean> {
   try {
-    const jsonData = await updateSchool(schoolId, name, number);
-    router.replace('/schools/all-schools');
-    return true;
+    const edited = await updateSchool(schoolId, name, number);
+    if (edited) {
+      router.replace('/schools/all-schools');
+      return true;
+    }
   } catch (error) {
     return false;
   }
+  return false;
 }

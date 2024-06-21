@@ -1,13 +1,16 @@
+import { API_BASE_URL } from "@/constants/BaseUrl";
 import { getAccessToken } from "../../auth/authenticationStore/authStore";
 
-export default async function updateSchool(schoolId: number, name: string, number: number) {
+export default async function updateSchool(
+  schoolId: number, name: string, number: number
+): Promise<boolean> {
 
-  let url = `http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools/${schoolId}`;
+  const url = `${API_BASE_URL}schools/${schoolId}`;
 
   const accessToken =  await getAccessToken();
   if (!accessToken) {
     console.log(accessToken);
-    // throw new Error('Access token is missing');
+    return false;
   }
 
   const res = await fetch(url, {
@@ -22,8 +25,8 @@ export default async function updateSchool(schoolId: number, name: string, numbe
   if (!res.ok) {
     const errorResponse = await res.text();
     console.log(errorResponse);
-    return;
+    return false;
   }
     
-  return await res.json();
+  return true;
 }
