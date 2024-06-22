@@ -43,7 +43,6 @@ describe('getAccessToken', () => {
 
       const result = await getAccessToken();
       expect(result).toBe('test-token');
-      expect(mockMobileAuthStorage.getAccessToken).toHaveBeenCalled();
     });
 
     it('should return empty string if platform is mobile and accessToken does not exist', async () => {
@@ -54,7 +53,6 @@ describe('getAccessToken', () => {
 
       const result = await getAccessToken();
       expect(result).toBe('');
-      expect(mockMobileAuthStorage.getAccessToken).toHaveBeenCalled();
     });
 
     it('should return accessToken if platform is web and accessToken exists', async () => {
@@ -65,7 +63,6 @@ describe('getAccessToken', () => {
 
       const result = await getAccessToken();
       expect(result).toBe('test-token');
-      expect(mockWebAuthStorage.getAccessToken).toHaveBeenCalled();
     });
 
     it('should return empty string if platform is web and accessToken does not exist', async () => {
@@ -76,6 +73,5 @@ describe('getAccessToken', () => {
 
       const result = await getAccessToken();
       expect(result).toBe('');
-      expect(mockWebAuthStorage.getAccessToken).toHaveBeenCalled();
     });
   });

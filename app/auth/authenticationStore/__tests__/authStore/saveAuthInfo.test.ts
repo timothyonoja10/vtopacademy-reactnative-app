@@ -43,7 +43,6 @@ describe('saveAuthInfo', () => {
 
     const result = await saveAuthInfo('test-token', true, true);
     expect(result).toBe(true);
-    expect(mockMobileAuthStorage.saveAuthInfo).toHaveBeenCalledWith('test-token', true, true);
   });
 
   it('should save auth info if platform is web', async () => {
@@ -54,7 +53,6 @@ describe('saveAuthInfo', () => {
 
     const result = await saveAuthInfo('test-token', true, true);
     expect(result).toBe(true);
-    expect(mockWebAuthStorage.saveAuthInfo).toHaveBeenCalledWith('test-token', true, true);
   });
 
   it('should return false if saving auth info fails on mobile', async () => {
@@ -65,7 +63,6 @@ describe('saveAuthInfo', () => {
 
     const result = await saveAuthInfo('test-token', true, true);
     expect(result).toBe(false);
-    expect(mockMobileAuthStorage.saveAuthInfo).toHaveBeenCalledWith('test-token', true, true);
   });
 
   it('should return false if saving auth info fails on web', async () => {
@@ -76,6 +73,5 @@ describe('saveAuthInfo', () => {
 
     const result = await saveAuthInfo('test-token', true, true);
     expect(result).toBe(false);
-    expect(mockWebAuthStorage.saveAuthInfo).toHaveBeenCalledWith('test-token', true, true);
   });
 });

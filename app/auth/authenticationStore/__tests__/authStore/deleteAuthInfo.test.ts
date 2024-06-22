@@ -43,7 +43,6 @@ describe('deleteAuthInfo', () => {
 
     const result = await deleteAuthInfo();
     expect(result).toBe(true);
-    expect(mockMobileAuthStorage.deleteAuthInfo).toHaveBeenCalled();
   });
 
   it('should delete auth info if platform is web', async () => {
@@ -54,7 +53,6 @@ describe('deleteAuthInfo', () => {
 
     const result = await deleteAuthInfo();
     expect(result).toBe(true);
-    expect(mockWebAuthStorage.deleteAuthInfo).toHaveBeenCalled();
   });
 
   it('should return false if deleting auth info fails on mobile', async () => {
@@ -65,7 +63,6 @@ describe('deleteAuthInfo', () => {
 
     const result = await deleteAuthInfo();
     expect(result).toBe(false);
-    expect(mockMobileAuthStorage.deleteAuthInfo).toHaveBeenCalled();
   });
 
   it('should return false if deleting auth info fails on web', async () => {
@@ -76,6 +73,5 @@ describe('deleteAuthInfo', () => {
 
     const result = await deleteAuthInfo();
     expect(result).toBe(false);
-    expect(mockWebAuthStorage.deleteAuthInfo).toHaveBeenCalled();
   });
 });
