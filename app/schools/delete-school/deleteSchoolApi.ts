@@ -9,6 +9,11 @@ export default async function deleteSchool(schoolId: number): Promise<boolean> {
     return false;
   }
 
+  if (!accessToken) {
+    console.log('Access token is missing');
+    return false;
+  }
+
   const url = `${API_BASE_URL}schools/${schoolId}`;
   const response = await fetch(url, {
     method: 'DELETE',

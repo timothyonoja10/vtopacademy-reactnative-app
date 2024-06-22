@@ -2,7 +2,7 @@
 import { router } from 'expo-router';
 import deleteSchool from './deleteSchoolApi';
 
-export default async function processAddSchoolForm(
+export default async function processDeleteSchoolForm(
     schoolId: number
 ): Promise<Boolean> {
   try {
