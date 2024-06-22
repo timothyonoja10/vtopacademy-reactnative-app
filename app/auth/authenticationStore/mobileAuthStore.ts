@@ -32,20 +32,28 @@ export default class MobileAuthStorage {
   async saveAuthInfo(
     accessToken: string, isAdmin: boolean, isUser: boolean
   ): Promise<boolean> {
-    await SecureStore.setItemAsync('accessToken', accessToken);
-    if (isAdmin) {
-      await SecureStore.setItemAsync('isAdmin', 'true');
+    try {
+      await SecureStore.setItemAsync('accessToken', accessToken);
+      if (isAdmin) {
+        await SecureStore.setItemAsync('isAdmin', 'true');
+      }
+      if (isUser) {
+        await SecureStore.setItemAsync('isUser', 'true');
+      }
+      return true;
+    } catch (error) {
+      return false;
     }
-    if (isUser) {
-      await SecureStore.setItemAsync('isUser', 'true');
-    }
-    return true;
   }
 
   async deleteAuthInfo(): Promise<boolean> {
-    await SecureStore.deleteItemAsync('isAdmin');
-    await SecureStore.deleteItemAsync('isUser');
-    await SecureStore.deleteItemAsync('accessToken');
-    return true;
+    try {
+      await SecureStore.deleteItemAsync('isAdmin');
+      await SecureStore.deleteItemAsync('isUser');
+      await SecureStore.deleteItemAsync('accessToken');
+      return true;
+    } catch (error) {
+      return false;
+    }  
   }
 }
