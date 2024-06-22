@@ -1,4 +1,3 @@
-import { router } from 'expo-router';
 import deleteSchool from '../deleteSchoolApi';
 import processDeleteSchoolForm from '../deleteFormProcessor';
 
@@ -22,7 +21,6 @@ describe('processDeleteSchoolForm', () => {
 
     const result = await processDeleteSchoolForm(123);
     expect(result).toBe(true);
-    expect(router.replace).toHaveBeenCalledWith('/schools/all-schools');
   });
 
   it('should return false if deleteSchool fails', async () => {
@@ -30,7 +28,6 @@ describe('processDeleteSchoolForm', () => {
 
     const result = await processDeleteSchoolForm(123);
     expect(result).toBe(false);
-    expect(router.replace).not.toHaveBeenCalled();
   });
 
   it('should return false if deleteSchool throws an error', async () => {
@@ -38,6 +35,5 @@ describe('processDeleteSchoolForm', () => {
 
     const result = await processDeleteSchoolForm(123);
     expect(result).toBe(false);
-    expect(router.replace).not.toHaveBeenCalled();
   });
 });

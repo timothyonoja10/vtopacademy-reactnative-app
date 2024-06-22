@@ -1,4 +1,3 @@
-import { router } from 'expo-router';
 import updateSchool from '../updateSchoolApi';
 import processEditSchoolForm from '../editSchoolFormProcessor';
 

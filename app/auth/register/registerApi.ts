@@ -14,7 +14,7 @@ export default async function makeRegistration(username: string, password: strin
     
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    console.log('Unable to register. Enter valid inputs and try again');
+    throw new Error('Unable to register. Enter valid inputs and try again');
   }
   return res.json();
 }
