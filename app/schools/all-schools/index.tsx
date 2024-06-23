@@ -1,13 +1,13 @@
 
 import { Link, Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Pressable, SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
+import { Pressable, FlatList, ActivityIndicator } from 'react-native';
 import { isAdmin } from '../../auth/authenticationStore/authStore';
 import { useSQLiteContext } from 'expo-sqlite';
 import { shouldSupportOfflineStorage } from '../../utilities';
 import getSchools from './schoolsRepository';
-import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 
 export default function Page() { 
   const [isLoading, setLoading] = useState(true);
@@ -28,16 +28,14 @@ export default function Page() {
   }, []);
   
   return (
-    <SafeAreaView style={styles.container}>
+    <ThemedSafeAreaView>
       <Stack.Screen
-        options={{
-          title: 'Schools',
-        }}
+        options={{ title: 'Schools', }}
       />
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <ThemedView>
+        <>
           {isAdminstrator && (
             <Link href="/schools/add-school" asChild >
               <Pressable><ThemedText>Add New School</ThemedText></Pressable>
@@ -62,15 +60,8 @@ export default function Page() {
               </>
             )}
           />
-        </ThemedView>
+        </>
       )}
-    </SafeAreaView> 
+    </ThemedSafeAreaView> 
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-

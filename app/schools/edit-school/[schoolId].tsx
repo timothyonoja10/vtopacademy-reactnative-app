@@ -1,11 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
-import {Text, SafeAreaView, StyleSheet, TextInput, Button, View, ActivityIndicator, StatusBar} from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import processEditSchoolForm from './editSchoolFormProcessor';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import getSchool from './getSchoolApi';
-import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
+import { ThemedTextInput } from '@/components/ThemedTextInput';
+import { ThemedButton } from '@/components/ThemedButton';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 
 export default function Page() {
   const { schoolId } = useLocalSearchParams();
@@ -25,65 +27,35 @@ export default function Page() {
   }, []);
   
   return (
-    <SafeAreaView style={styles.container}>
+    <ThemedSafeAreaView>
       <Stack.Screen
-        options={{
-          title: 'Edit school',
-        }}
+        options={{ title: 'Edit school' }}
       />
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <ThemedView>
+        <>
           <ThemedText>Edit school</ThemedText>
       
           <ThemedText>Name</ThemedText>
-          <TextInput
-            style={styles.input}
+          <ThemedTextInput
             onChangeText={onChangeName}
             value={name}
           />
 
           <ThemedText>Password</ThemedText>
-          <TextInput
-            style={styles.input}
+          <ThemedTextInput
             onChangeText={onChangeNumber}
             value={number}
             keyboardType='numeric'
           />
 
-          <Button
+          <ThemedButton
             title="Submit"
             onPress={() => processEditSchoolForm(Number(schoolId), name, Number(number))}
           />
-        </ThemedView>
+        </>
       )}
-    </SafeAreaView> 
+    </ThemedSafeAreaView> 
   );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      marginTop: StatusBar.currentHeight || 0,
-    },
-    item: {
-      backgroundColor: '#f9c2ff',
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
-    },
-    title: {
-      fontSize: 32,
-    },
-    button: {
-      color: 'blue',
-      backgroundColor: 'black'
-    },
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-});

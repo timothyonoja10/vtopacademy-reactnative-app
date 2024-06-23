@@ -1,13 +1,14 @@
 import { Link, Stack, useLocalSearchParams } from 'expo-router';
-import { Button, Pressable, SafeAreaView, Text } from 'react-native';
+import { StyleSheet, Pressable, SafeAreaView } from 'react-native';
 import processDeleteSchoolForm from './deleteFormProcessor';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { ThemedButton } from '@/components/ThemedButton';
 
 export default function Page() {
   const { schoolId } = useLocalSearchParams();
   return(
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Stack.Screen
         options={{
           title: 'Delete school',
@@ -16,10 +17,10 @@ export default function Page() {
       <ThemedView>
         <ThemedText>Delete confirmation</ThemedText>
         <ThemedText>Are you sure you want to delete this school?</ThemedText>
-        <Link href="/schools/all-schools" asChild >
+        <Link replace href="/schools/all-schools" asChild >
           <Pressable><ThemedText>No</ThemedText></Pressable>
         </Link> 
-        <Button
+        <ThemedButton
           title="Yes"
           onPress={() => processDeleteSchoolForm(Number(schoolId))}
         />
@@ -27,3 +28,10 @@ export default function Page() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20
+  }
+});

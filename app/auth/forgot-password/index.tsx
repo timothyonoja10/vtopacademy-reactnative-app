@@ -1,43 +1,32 @@
 
 import React from 'react';
-import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import { Stack } from 'expo-router';
 import processForgotPasswordForm from './forgotPasswordFormProcessor';
-import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedTextInput } from '@/components/ThemedTextInput';
+import { ThemedButton } from '@/components/ThemedButton';
 
 export default function Page() {
   const [username, onChangeText] = React.useState('');
 
   return (
-    <SafeAreaView>
+    <ThemedSafeAreaView>
       <Stack.Screen
-        options={{ title: 'Forgot Password', }}
+        options={{ title: 'Forgot Password' }}
       />
-      <ThemedView>
-        <ThemedText>Enter your email</ThemedText>
+      <ThemedText>Enter your email</ThemedText>
 
-        <ThemedText>Email</ThemedText>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
-          value={username}
-        />
+      <ThemedText>Email</ThemedText>
+      <ThemedTextInput
+        onChangeText={onChangeText}
+        value={username}
+      />
 
-        <Button
-          title="Submit"
-          onPress={() => processForgotPasswordForm(username)}
-        />
-      </ThemedView>
-    </SafeAreaView>
+      <ThemedButton
+        title="Submit"
+        onPress={() => processForgotPasswordForm(username)}
+      />
+    </ThemedSafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-});

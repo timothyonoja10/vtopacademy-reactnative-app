@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import processChangePasswordForm from './changePasswordFormProcessor';
 import { convertToString } from '../../utilities';
-import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedTextInput } from '@/components/ThemedTextInput';
+import { ThemedButton } from '@/components/ThemedButton';
 
 export default function Page() {
   const { username } = useLocalSearchParams();
@@ -14,41 +15,28 @@ export default function Page() {
   console.log(`parameter: ${parsedUsername}`);
 
   return (
-    <SafeAreaView>
+    <ThemedSafeAreaView>
       <Stack.Screen options={{ title: 'Change Password' }} />
       
-      <ThemedView>
-        <ThemedText>Enter the code sent to your email</ThemedText>
+      <ThemedText>Enter the code sent to your email</ThemedText>
 
-        <ThemedText>Code</ThemedText>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeCode}
-          value={code}
-        />
+      <ThemedText>Code</ThemedText>
+      <ThemedTextInput
+        onChangeText={onChangeCode}
+        value={code}
+      />
 
-        <ThemedText>New Password</ThemedText>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeNumber}
-          value={password}
-        />
+      <ThemedText>New Password</ThemedText>
+      <ThemedTextInput
+        onChangeText={onChangeNumber}
+        value={password}
+      />
 
-        <Button
-          title="Submit"
-          onPress={() => processChangePasswordForm(parsedUsername, password, code)}
-        />
-      </ThemedView>
+      <ThemedButton
+        title="Submit"
+        onPress={() => processChangePasswordForm(parsedUsername, password, code)}
+      />
       
-    </SafeAreaView>
+    </ThemedSafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-});

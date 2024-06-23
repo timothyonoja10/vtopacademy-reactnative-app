@@ -1,51 +1,37 @@
 import React from 'react';
-import {Text, SafeAreaView, StyleSheet, TextInput, Button} from 'react-native';
 import processLoginForm from './loginFormProcessor';
 import { Stack } from 'expo-router';
-import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedTextInput } from '@/components/ThemedTextInput';
+import { ThemedButton } from '@/components/ThemedButton';
 
 export default function Page() {
   const [username, onChangeText] = React.useState('');
   const [password, onChangeNumber] = React.useState('');
 
   return (
-    <SafeAreaView>
+    <ThemedSafeAreaView>
       <Stack.Screen
-        options={{
-          title: 'Login',
-        }}
+        options={{ title: 'Login' }}
       />
-      <ThemedView>
-        <ThemedText>Login</ThemedText>
-        <ThemedText>Username</ThemedText>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
-          value={username}
-        />
 
-        <ThemedText>Password</ThemedText>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeNumber}
-          value={password}
-        />
+      <ThemedText>Username</ThemedText>
+      <ThemedTextInput
+        onChangeText={onChangeText}
+        value={username}
+      />
 
-        <Button
-          title="Submit"
-          onPress={() => processLoginForm(username, password)}
-        />
-      </ThemedView>
-    </SafeAreaView>
+      <ThemedText>Password</ThemedText>
+      <ThemedTextInput
+        onChangeText={onChangeNumber}
+        value={password}
+      />
+
+      <ThemedButton
+        title="Submit"
+        onPress={() => processLoginForm(username, password)}
+      />
+    </ThemedSafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-});
