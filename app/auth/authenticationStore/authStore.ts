@@ -36,12 +36,13 @@ export async function getAccessToken(): Promise<String> {
 export async function saveAuthInfo(
   accessToken: string, isAdmin: boolean, isUser: boolean
 ): Promise<boolean> {
+  const expiryInDays = 30;
   if (isMobilePlatform()) {
     const mobileAuthStorage = new MobileAuthStorage();
-    return await mobileAuthStorage.saveAuthInfo(accessToken, isAdmin, isUser);
+    return await mobileAuthStorage.saveAuthInfo(accessToken, isAdmin, isUser, expiryInDays);
   } else {
     const webAuthStorage = new WebAuthStorage();
-    return await webAuthStorage.saveAuthInfo(accessToken, isAdmin, isUser);
+    return await webAuthStorage.saveAuthInfo(accessToken, isAdmin, isUser, expiryInDays);
   }
 }
 
