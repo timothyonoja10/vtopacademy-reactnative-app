@@ -5,25 +5,30 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 export type ThemedTextInputProps = TextInputProps & {
   lightColor?: string;
   darkColor?: string;
+  type?: 'filled' | 'outlined';
 };
 
 export function ThemedTextInput({
   style,
   lightColor,
   darkColor,
+  type = 'outlined',
   ...rest
 }: ThemedTextInputProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'primary');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'surfContainerHighest');
+  const outlineColor = useThemeColor({ light: lightColor, dark: darkColor }, 'outline');
+  const placeholderColor = useThemeColor({ light: lightColor, dark: darkColor }, 'onSurfaceVar');
 
   return (
     <TextInput
       style={[
         styles.input,
-        { color, backgroundColor },
+        type === 'filled' ? { color, backgroundColor } : undefined,
+        type === 'outlined' ? { color, borderColor: outlineColor, borderWidth: 1  } : undefined,
         style,
       ]}
-      placeholderTextColor={color}
+      placeholderTextColor={placeholderColor}
       {...rest}
     />
   );
@@ -31,10 +36,16 @@ export function ThemedTextInput({
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
+    height: 56,
     borderRadius: 4,
+    justifyContent: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+  filled: {
+
+  },
+  outlined: {
+    
   },
 });

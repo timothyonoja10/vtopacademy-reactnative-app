@@ -15,9 +15,8 @@ export default function Page() {
       <Stack.Screen
         options={{ title: 'Forgot Password' }}
       />
+      
       <ThemedText>Enter your email</ThemedText>
-
-      <ThemedText>Email</ThemedText>
       <ThemedTextInput
         onChangeText={onChangeText}
         value={username}

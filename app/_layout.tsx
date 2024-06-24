@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { Stack } from 'expo-router';
+import { ThemedStack } from '@/components/ThemedStack';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -32,8 +32,9 @@ export default function RootLayout() {
 
   const stackComponent = (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-      </Stack>
+      <ThemedStack>
+        
+      </ThemedStack>
     </ThemeProvider>
   );
 

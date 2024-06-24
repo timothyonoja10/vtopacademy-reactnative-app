@@ -3,9 +3,6 @@
  * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
  */
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
   light: {
     primary: '#415f91',
@@ -34,7 +31,7 @@ export const Colors = {
     inverseSurface: '#2e3036',
 
     surfContainerLowest: '#ffffff',
-    surContainerLow: '#f3f3fa',
+    surfContainerLow: '#f3f3fa',
     surfContainer: '#ededf4',
     surfContainerHigh: '#e7e8ee',
     surfContainerHighest: '#e2e2e9',
@@ -51,15 +48,7 @@ export const Colors = {
     customColor1: '#1a6b51',
     onCustomColor1: '#ffffff',
     customColor1Container: '#a6f2d2',
-    onCustomColor1Container: '#002116',
-
-
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    onCustomColor1Container: '#002116'
   },
   dark: {
     primary: '#aac7ff',
@@ -88,7 +77,7 @@ export const Colors = {
     inverseSurface: '#e2e2e9',
 
     surfContainerLowest: '#0c0e13',
-    surContainerLow: '#191c20',
+    surfContainerLow: '#191c20',
     surfContainer: '#1d2024',
     surfContainerHigh: '#282a2f',
     surfContainerHighest: '#33353a',
@@ -106,12 +95,5 @@ export const Colors = {
     onCustomColor1: '#003828',
     customColor1Container: '#00513b',
     onCustomColor1Container: '#a6f2d2',
-
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
   },
 };

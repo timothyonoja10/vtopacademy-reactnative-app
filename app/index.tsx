@@ -5,6 +5,7 @@ import { hasAccessToken } from './auth/authenticationStore/authStore';
 import { useEffect, useState } from 'react';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 
 export default function Page() {
   const [isLoading, setLoading] = useState(true);
@@ -23,7 +24,7 @@ export default function Page() {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ThemedSafeAreaView>
       <Stack.Screen
         options={{
           title: 'Home',
@@ -32,7 +33,7 @@ export default function Page() {
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <ThemedView style={styles.container}>
+        <>
           <ThemedText>Home page</ThemedText>
           <Link href="/schools/all-schools" asChild >
             <Pressable><ThemedText>Schools</ThemedText></Pressable>
@@ -55,9 +56,9 @@ export default function Page() {
               <Pressable><ThemedText>Logout</ThemedText></Pressable>
             </Link>
           )}
-        </ThemedView>
+        </>
       )}
-    </SafeAreaView>
+    </ThemedSafeAreaView>
   );
 }
 

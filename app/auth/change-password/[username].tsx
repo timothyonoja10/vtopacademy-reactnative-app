@@ -19,14 +19,12 @@ export default function Page() {
       <Stack.Screen options={{ title: 'Change Password' }} />
       
       <ThemedText>Enter the code sent to your email</ThemedText>
-
-      <ThemedText>Code</ThemedText>
       <ThemedTextInput
         onChangeText={onChangeCode}
         value={code}
       />
 
-      <ThemedText>New Password</ThemedText>
+      <ThemedText>Set new password</ThemedText>
       <ThemedTextInput
         onChangeText={onChangeNumber}
         value={password}
