@@ -14,7 +14,7 @@ export function ThemedSafeAreaView({
   darkColor,
   ...rest
 }: ThemedSafeAreaViewProps) {
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'surfContainerLowest');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'surface');
 
   return (
     <SafeAreaView
@@ -31,6 +31,7 @@ export function ThemedSafeAreaView({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 8
   },
 });

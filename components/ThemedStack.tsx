@@ -9,7 +9,7 @@ export type ThemedStackProps = ViewProps & {
 };
 
 export function ThemedStack({ style, lightColor, darkColor, ...otherProps }: ThemedStackProps) {
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'surface');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'surfContainerHighest');
   const textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'onSurface');
 
   return (

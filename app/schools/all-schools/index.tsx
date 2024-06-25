@@ -8,6 +8,7 @@ import { shouldSupportOfflineStorage } from '../../utilities';
 import getSchools from './schoolsRepository';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedListItem } from '@/components/ThemedListItem';
 
 export default function Page() { 
   const [isLoading, setLoading] = useState(true);
@@ -46,7 +47,7 @@ export default function Page() {
             keyExtractor={({schoolId}) => schoolId.toString()}
             renderItem={({item}) => (
               <>
-                <ThemedText>{item.name}</ThemedText>
+                <ThemedListItem title={item.name} />
                 {isAdminstrator && (
                   <>
                     <Link href={`/schools/edit-school/${item.schoolId}`} asChild >
