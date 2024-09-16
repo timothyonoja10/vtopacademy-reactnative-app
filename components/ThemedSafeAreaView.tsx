@@ -14,7 +14,7 @@ export function ThemedSafeAreaView({
   darkColor,
   ...rest
 }: ThemedSafeAreaViewProps) {
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'surface');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'surfContainerLowest');
 
   return (
     <SafeAreaView

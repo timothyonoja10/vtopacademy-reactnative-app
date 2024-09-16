@@ -1,9 +1,8 @@
 
 import { Link, Stack } from 'expo-router';
-import { StyleSheet, Pressable, Text, View, StatusBar, SafeAreaView, ActivityIndicator } from 'react-native';
+import { StyleSheet, Pressable, ActivityIndicator } from 'react-native';
 import { hasAccessToken } from './auth/authenticationStore/authStore';
 import { useEffect, useState } from 'react';
-import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 
