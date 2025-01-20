@@ -5,6 +5,7 @@ import { hasAccessToken } from './auth/authenticationStore/authStore';
 import { useEffect, useState } from 'react';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import React from 'react';
 
 export default function Page() {
   const [isLoading, setLoading] = useState(true);
