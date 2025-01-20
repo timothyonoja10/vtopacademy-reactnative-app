@@ -1,6 +1,12 @@
-# Welcome to your Expo app 👋
+# Welcome to vtopacademy reactnative app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a mobile app that provides tutorial videos and practice questions for secondary students
+
+## Environment variables
+
+```bash
+EXPO_PUBLIC_API_URL=http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/
+```
 
 ## Get started
 
@@ -25,26 +31,37 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
-
-When you're ready, run:
+## Test
 
 ```bash
-npm run reset-project
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Support
 
-## Learn more
+Vtopacademy is a tutorial platform designed to help students excel in their studies. This project thrives thanks to the amazing support from sponsors and contributors. If you'd like to support Vtopacademy and help us grow, please consider:
 
-To learn more about developing your project with Expo, look at the following resources:
+- [Becoming a sponsor](#) (link to a sponsorship page or platform like GitHub Sponsors or Patreon)
+- [Making a one-time contribution](#) (link to a donation platform like PayPal, Buy Me a Coffee, etc.)
+- [Contributing code or ideas](#) (link to the repository's contribution guidelines)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Your support is invaluable and helps us provide better resources for students. Thank you!
 
-## Join the community
 
-Join our community of developers creating universal apps.
+## Stay in touch
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Author - [Timothy Onoja](https://timothyonoja.com)
+- Website - [https://vtopacademy.com](https://vtopacademy.com/)
+- Youtube - [@vtopacademy](https://youtube.com/vtopacademy)
+- Twitter - [@vtopacademy](https://twitter.com/vtopacademy)
+
+## License
+
+Vtopacademy is [Proprietary licensed](LICENSE). You may not use, copy, modify, or distribute this code without explicit permission from the author.
