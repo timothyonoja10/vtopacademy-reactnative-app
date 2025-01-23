@@ -5,7 +5,7 @@ This is a mobile app that provides tutorial videos and practice questions for se
 ## Environment variables
 
 ```bash
-EXPO_PUBLIC_API_URL=http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/
+EXPO_PUBLIC_API_URL=http://url.com/api/
 ```
 
 ## Get started
